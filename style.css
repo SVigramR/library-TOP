@@ -1,0 +1,58 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: whitesmoke;
+    height: 100vh;
+}
+
+header {
+    background-color: #164e63;
+}
+
+h1 {
+    margin: auto;
+    padding: 1rem;
+    width: max-content; 
+    color: #ecfeff;
+}
+
+main {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.btn {
+    border: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: whitesmoke;
+}
+
+.addBookBtn {
+    padding: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.addBookBtn:hover {
+    transform: scale(1.1);
+}   
+
+/* footer */
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
