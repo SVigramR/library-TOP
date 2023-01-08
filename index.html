@@ -16,6 +16,27 @@
         <div>
             <button class="btn addBookBtn">Add Book</button>
         </div>
+        
+        <div class="form-popup">
+            <form class="my-form" action="#" method="post">
+                <label for="title"> Title
+                    <input type="text" name="title" id="title">
+                    <div class="error" id="err-title"></div>
+                </label>
+                <label for="author">Author
+                    <input type="text" name="author" id="author">
+                    <div class="error" id="err-author"></div>
+                </label>
+                <label for="pages">pages
+                    <input type="number" name="pages" id="pages">
+                    <div class="error" id="err-pages"></div>
+                </label>
+                <label id="readCheckbox" for="mark">
+                    <input type="checkbox" name="mark" id="mark">Not Read
+                </label>
+                <button class="btn form-submit" type="submit" >Add</button>
+            </form>
+        </div>
     </main>
     <footer>
       <h4 class="foo">
