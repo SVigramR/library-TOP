@@ -13,12 +13,14 @@
     <header>
       <h1>My Library</h1>
     </header>
-    <main>
-        <div>
-            <button class="btn addBookBtn">Add Book</button>
-        </div>
-        
+    
+    <div class="form-open">
+        <button class="btn addBookBtn">Add Book</button>
+    </div>
+    
+    <div class="main">
         <div class="form-popup">
+            <span class="material-icons close-form">close</span>
             <form class="my-form" action="#" method="post">
                 <label for="title"> Title
                     <input type="text" name="title" id="title">
@@ -38,7 +40,7 @@
                 <button class="btn form-submit" type="submit" >Add</button>
             </form>
         </div>
-    </main>
+    </div>  
     <footer>
       <h4 class="foo">
         Copyright @<script>document.write(new Date().getFullYear());</script>
