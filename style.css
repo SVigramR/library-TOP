@@ -50,6 +50,7 @@ h1 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
   z-index: 10;
   width: 300px;
   background-color: #f5deb3;
@@ -58,7 +59,7 @@ h1 {
   padding: 1rem;
 }
 
-.form-popup-active {
+.form-popup.active {
   transform: translate(-50%, -50%) scale(1);
 }
 
@@ -69,6 +70,7 @@ h1 {
   bottom: 0;
   left: 0;
   right: 0;
+  transition: 200ms ease-in-out;
   background-color: rgba(0, 0, 0, 0.5);
   pointer-events: none;
 }
