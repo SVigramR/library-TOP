@@ -6,45 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
     <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
     <script defer src="./script.js"></script>
   </head>
   <body>
     <header>
       <h1>My Library</h1>
     </header>
-    
+
     <div class="form-open">
-        <button class="btn addBookBtn">Add Book</button>
+      <button data-form-add-button="#form-popup" class="btn addBookBtn">Add Book</button>
+    </div>
+
+    <div class="form-popup" id="form-popup">
+      <span data-close-button class="material-icons close-form">close</span>
+      <form class="my-form" action="#" method="post">
+        <label for="title">
+          Title
+          <input type="text" name="title" id="title" />
+          <div class="error" id="err-title"></div>
+        </label>
+        <label for="author"
+          >Author
+          <input type="text" name="author" id="author" />
+          <div class="error" id="err-author"></div>
+        </label>
+        <label for="pages"
+          >pages
+          <input type="number" name="pages" id="pages" />
+          <div class="error" id="err-pages"></div>
+        </label>
+        <label id="readCheckbox" for="mark">
+          <input type="checkbox" name="mark" id="mark" />Not Read
+        </label>
+        <button class="btn form-submit" type="submit">Add</button>
+      </form>
     </div>
     
-    <div class="main">
-        <div class="form-popup">
-            <span class="material-icons close-form">close</span>
-            <form class="my-form" action="#" method="post">
-                <label for="title"> Title
-                    <input type="text" name="title" id="title">
-                    <div class="error" id="err-title"></div>
-                </label>
-                <label for="author">Author
-                    <input type="text" name="author" id="author">
-                    <div class="error" id="err-author"></div>
-                </label>
-                <label for="pages">pages
-                    <input type="number" name="pages" id="pages">
-                    <div class="error" id="err-pages"></div>
-                </label>
-                <label id="readCheckbox" for="mark">
-                    <input type="checkbox" name="mark" id="mark">Not Read
-                </label>
-                <button class="btn form-submit" type="submit" >Add</button>
-            </form>
-        </div>
-    </div>  
+    <div id="popup-background"></div>
+
     <footer>
       <h4 class="foo">
-        Copyright @<script>document.write(new Date().getFullYear());</script>
-        <a href="https://github.com/SVigramR/Library-TOP" target="_blank">SVigramR</a>
+        Copyright @
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        <a href="https://github.com/SVigramR/Library-TOP" target="_blank"
+          >SVigramR</a
+        >
       </h4>
     </footer>
   </body>
