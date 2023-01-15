@@ -40,7 +40,7 @@ function closePopup(popup) {
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const pages = document.querySelector('#pages');
-const checkBoxLabel = document.querySelector('#readCheckBox');
+const checkBoxLabel = document.querySelector('#readOrNot');
 const mark = document.querySelector('#mark');
 const errTitle = document.querySelector('#err-title');
 const errAuthor = document.querySelector('#err-author');
@@ -70,3 +70,11 @@ pages.addEventListener('input', () => {
         errPages.textContent = '';
     }
 }) 
+
+mark.addEventListener('change', () => {
+    if (mark.checked) {
+        checkBoxLabel.textContent = 'I read this book'
+    } else {
+        checkBoxLabel.textContent = 'Not read the book'
+    }
+})
