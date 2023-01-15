@@ -44,7 +44,7 @@ const checkBoxLabel = document.querySelector('#readCheckBox');
 const mark = document.querySelector('#mark');
 const errTitle = document.querySelector('#err-title');
 const errAuthor = document.querySelector('#err-author');
-const errPages = document.querySelector('err-pages');
+const errPages = document.querySelector('#err-pages');
 
 title.addEventListener('input', () => {
     if (title.value === '') {
@@ -59,5 +59,14 @@ author.addEventListener('input', () => {
         errAuthor.textContent = "Please type in Author name of the book."
     } else {
         errAuthor.textContent = '';
+    }
+}) 
+
+pages.addEventListener('input', () => {
+
+    if (pages.value === '') {
+        errPages.textContent = "Please type in number of pages in the book."
+    } else {
+        errPages.textContent = '';
     }
 }) 
