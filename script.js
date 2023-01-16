@@ -45,6 +45,7 @@ const mark = document.querySelector('#mark');
 const errTitle = document.querySelector('#err-title');
 const errAuthor = document.querySelector('#err-author');
 const errPages = document.querySelector('#err-pages');
+const myForm = document.querySelector('#my-form');
 
 title.addEventListener('input', () => {
     if (title.value === '') {
@@ -63,7 +64,6 @@ author.addEventListener('input', () => {
 }) 
 
 pages.addEventListener('input', () => {
-
     if (pages.value === '') {
         errPages.textContent = "Please type in number of pages in the book."
     } else {
@@ -78,3 +78,32 @@ mark.addEventListener('change', () => {
         checkBoxLabel.textContent = 'Not read the book'
     }
 })
+
+myForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    const titleValue = document.querySelector('[data-title]').value;
+    const authorValue = document.querySelector('[data-author]').value;
+    const pagesValue = document.querySelector('[data-pages]').value;
+    const checkboxValue = document.querySelector('[data-checkbox]').checked;
+
+    if (titleValue !== '' && authorValue !== '' && !isNaN(pagesValue)) {
+        addBookToLibrary(titleValue, authorValue, pagesValue, checkboxValue)
+    }
+    console.log(myLibrary);
+})
+
+// Library Add
+let myLibrary = [];
+
+function book(title, author, pages, mark) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.mark = mark;
+}
+
+function addBookToLibrary(title, author, pages, mark) {
+    let newBook = new book(title, author, pages, mark)
+    myLibrary.push(newBook);
+}
