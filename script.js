@@ -91,6 +91,7 @@ myForm.addEventListener('submit', (event) => {
         addBookToLibrary(titleValue, authorValue, pagesValue, checkboxValue)
     }
     console.log(myLibrary);
+    closePopup(document.querySelector('#form-popup'));
 })
 
 // Library Add
