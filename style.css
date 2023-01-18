@@ -131,6 +131,12 @@ input {
   font-size: larger;
 }
 
+/* card section */
+.card-section {
+  width: 100vw;
+  height: 100vh;
+}
+
 /* footer */
 footer {
   position: fixed;
