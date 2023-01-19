@@ -111,7 +111,12 @@ function addBookToLibrary(title, author, pages, mark) {
 }
 
 function displayBook() {
-    let cardSection = document.querySelector('.card-section')
-    const element = document.createTextNode(`${myLibrary[myLibrary.length - 1].title}\n ${myLibrary[myLibrary.length - 1].author}${myLibrary[myLibrary.length - 1].pages}${myLibrary[myLibrary.length - 1].mark}`); 
-    cardSection.appendChild(element)
+    let cardSection = document.querySelector('.card-section');
+    myLibrary.forEach((obj) => {
+        Object.keys(obj).forEach(object =>{
+            let keyDiv = document.createElement('div');
+            keyDiv.textContent = obj[object];
+            cardSection.appendChild(keyDiv);
+        }); 
+    });
 }
