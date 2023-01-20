@@ -112,11 +112,29 @@ function addBookToLibrary(title, author, pages, mark) {
 
 function displayBook() {
     let cardSection = document.querySelector('.card-section');
-    myLibrary.forEach((obj) => {
-        Object.keys(obj).forEach(object =>{
-            let keyDiv = document.createElement('div');
-            keyDiv.textContent = obj[object];
-            cardSection.appendChild(keyDiv);
-        }); 
+    let isRead = document.createElement('input')
+    myLibrary.forEach(object => {
+        for(const [key, value] of Object.entries(object)){
+            let objDiv = document.createElement('div');
+            if (key === 'mark'){
+                cardSection.appendChild(appendCheckbox(value))
+            } else {
+                objDiv.textContent = `${key} : ${value}`;
+            }
+            cardSection.appendChild(objDiv);
+        }
+        console.log(object);
     });
+
+}
+
+function appendCheckbox(isRead) {
+    let checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    if (isRead === true) {
+        checkbox.setAttribute('checked', 'checked');
+    } else {
+        checkbox
+    }
+    return checkbox
 }
