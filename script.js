@@ -89,9 +89,9 @@ myForm.addEventListener('submit', (event) => {
 
     if (titleValue !== '' && authorValue !== '' && !isNaN(pagesValue)) {
         addBookToLibrary(titleValue, authorValue, pagesValue, checkboxValue)
+        closePopup(document.querySelector('#form-popup'));
     }
     console.log(myLibrary);
-    closePopup(document.querySelector('#form-popup'));
 })
 
 // Library Add
