@@ -91,7 +91,6 @@ myForm.addEventListener('submit', (event) => {
         addBookToLibrary(titleValue, authorValue, pagesValue, checkboxValue)
     }
     console.log(myLibrary);
-    displayBook()
     closePopup(document.querySelector('#form-popup'));
 })
 
@@ -106,26 +105,18 @@ function book(title, author, pages, mark) {
 }
 
 function addBookToLibrary(title, author, pages, mark) {
-    let newBook = new book(title, author, pages, mark)
+    let newBook = new book(title, author, pages, mark);
     myLibrary.push(newBook);
-}
-
-function displayBook() {
     let cardSection = document.querySelector('.card-section');
-    let isRead = document.createElement('input')
-    myLibrary.forEach(object => {
-        for(const [key, value] of Object.entries(object)){
-            let objDiv = document.createElement('div');
-            if (key === 'mark'){
-                cardSection.appendChild(appendCheckbox(value))
-            } else {
-                objDiv.textContent = `${key} : ${value}`;
-            }
-            cardSection.appendChild(objDiv);
+    for(const [key, value] of Object.entries(newBook)){
+        let objDiv = document.createElement('div');
+        if (key === 'mark'){
+            cardSection.appendChild(appendCheckbox(value))
+        } else {
+            objDiv.textContent = `${key} : ${value}`;
         }
-        console.log(object);
-    });
-
+        cardSection.appendChild(objDiv);
+    }
 }
 
 function appendCheckbox(isRead) {
