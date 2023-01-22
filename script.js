@@ -89,6 +89,7 @@ myForm.addEventListener('submit', (event) => {
 
     if (titleValue !== '' && authorValue !== '' && !isNaN(pagesValue)) {
         addBookToLibrary(titleValue, authorValue, pagesValue, checkboxValue)
+        myForm.reset();
         closePopup(document.querySelector('#form-popup'));
     }
     console.log(myLibrary);
@@ -109,7 +110,16 @@ class book {
 function addBookToLibrary(title, author, pages, mark) {
     let newBook = new book(title, author, pages, mark);
     myLibrary.push(newBook);
+
     let cardSection = document.querySelector('.card-section');
+    let card = document.createElement('div');
+    card.classList.add('card');
+    let checkDiv = document.createElement('div');
+    checkDiv.classList.add('checkdiv');
+    let removeButton = document.createElement('button');
+    removeButton.textContent = 'Remove';
+    removeButton.classList.add('card-remove-btn');
+
     for(const [key, value] of Object.entries(newBook)){
         let objDiv = document.createElement('div');
         if (key === 'mark'){
@@ -123,17 +133,20 @@ function addBookToLibrary(title, author, pages, mark) {
             checkbox.addEventListener('change', () => {
                 if (checkbox.checked) {
                     checkRead.textContent = "I have read this book!";
-                    newBook.mark = true;
+                    newBook.mark = true
                 } else {
                     checkRead.textContent = "Not read this book!";
-                    newBook.mark = false;
+                    newBook.mark = false
                 }
             })
-            cardSection.appendChild(checkRead)
-            cardSection.appendChild(checkbox)
+            checkDiv.appendChild(checkRead)
+            checkDiv.appendChild(checkbox)
+            card.appendChild(checkDiv)
         } else {
-            objDiv.textContent = `${key}: ${value}`;
+            objDiv.textContent = `${key.replace(/^\w/, c => c.toUpperCase())}: ${value}`;
         }
-        cardSection.appendChild(objDiv);
+        card.appendChild(objDiv);
     }
+    card.appendChild(removeButton);
+    cardSection.appendChild(card);
 }
