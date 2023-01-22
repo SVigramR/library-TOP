@@ -75,7 +75,7 @@ mark.addEventListener('change', () => {
     if (mark.checked) {
         checkBoxLabel.textContent = 'I read this book'
     } else {
-        checkBoxLabel.textContent = 'Not read the book'
+        checkBoxLabel.textContent = 'Not read this book'
     }
 })
 
@@ -97,11 +97,13 @@ myForm.addEventListener('submit', (event) => {
 // Library Add
 let myLibrary = [];
 
-function book(title, author, pages, mark) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.mark = mark;
+class book {
+    constructor(title, author, pages, mark) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.mark = mark;
+    }
 }
 
 function addBookToLibrary(title, author, pages, mark) {
@@ -111,21 +113,27 @@ function addBookToLibrary(title, author, pages, mark) {
     for(const [key, value] of Object.entries(newBook)){
         let objDiv = document.createElement('div');
         if (key === 'mark'){
-            cardSection.appendChild(appendCheckbox(value))
+            let checkbox = document.createElement('input');
+            let checkRead = document.createElement('p');
+            checkbox.type = 'checkbox';
+            checkbox.id = 'toggleCheck';
+            if (value === true) checkbox.setAttribute('checked', 'checked');
+            checkRead.id = 'toggleRead';
+            checkRead.textContent = value ? "I have read this book!" : "Not read this book!";
+            checkbox.addEventListener('change', () => {
+                if (checkbox.checked) {
+                    checkRead.textContent = "I have read this book!";
+                    newBook.mark = true;
+                } else {
+                    checkRead.textContent = "Not read this book!";
+                    newBook.mark = false;
+                }
+            })
+            cardSection.appendChild(checkRead)
+            cardSection.appendChild(checkbox)
         } else {
-            objDiv.textContent = `${key} : ${value}`;
+            objDiv.textContent = `${key}: ${value}`;
         }
         cardSection.appendChild(objDiv);
     }
-}
-
-function appendCheckbox(isRead) {
-    let checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    if (isRead === true) {
-        checkbox.setAttribute('checked', 'checked');
-    } else {
-        checkbox
-    }
-    return checkbox
 }
