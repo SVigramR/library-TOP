@@ -147,6 +147,17 @@ function addBookToLibrary(title, author, pages, mark) {
         }
         card.appendChild(objDiv);
     }
+
+    for (let index = 0; index < myLibrary.length; index++) {
+        card.setAttribute('data-index', index)
+    }
     card.appendChild(removeButton);
+    removeButton.addEventListener('click', () => {
+            const currentCard = removeButton.closest('.card')
+            let index = currentCard.getAttribute("data-index");
+            myLibrary.splice(index, 1);
+            card.parentNode.removeChild(card);
+            console.log(myLibrary)
+    })
     cardSection.appendChild(card);
 }
