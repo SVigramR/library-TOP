@@ -137,6 +137,12 @@ input {
   font-size: larger;
 }
 
+.error {
+  font-size: x-small;
+  color: red;
+}
+
+
 /* card section */
 .card-section {
   width: 100vw;
