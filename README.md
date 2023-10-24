@@ -1,2 +1,2 @@
 # library-TOP
-Description soon to be updated
+Welcome to my simple Library app,which is a basic CRUD application build in particular of TOP(The Odin Project) curriculum. In this project the curriculum guides you to create a app where you will create a book object containing the title, author, number of pages and, read or not information. This project enabled me to understand form input manipulation and  understand the process of CRUD structure.
